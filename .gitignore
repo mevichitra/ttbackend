@@ -1,0 +1,22 @@
+# IDE related files
+.idea/
+.vscode/
+.zed/
+__pycache__/
+
+# Virtual environment
+env/
+venv/
+.venv/
+.env
+
+# macOS
+.DS_Store
+
+# Test reports
+test-reports/
+/node_modules/
+/.serverless/
+
+# secrets
+/constants.py
