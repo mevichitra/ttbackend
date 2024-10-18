@@ -62,13 +62,22 @@ def phonepePaymentURL(amount: int):
 
 
 res = phonepePaymentURL(100)
-print(res)
-# data = res.json()
-# print(json.dumps(data))
-# print()
 
-# paymentURL = data["data"]["instrumentResponse"]["redirectInfo"]["url"]
-# transactionID = data["data"]["merchantTransactionId"]
-# print("transaction_id - ",transactionID)
-# print("payment_url - ",paymentURL)
-# print()
+"""
+SAMPLE RESPONSE
+{'code': 'PAYMENT_INITIATED',
+ 'data': {'instrumentResponse': {'redirectInfo': {'method': 'GET',
+                                                  'url': 'https://mercury-uat.phonepe.com/transact/simulator?token=1Ugbh6DMsGDPSl498ym6zhFQMg7Cm1VxrGE0SNANDWQUQXLMiVLI9ZdJoFAuOxvoqqTd2sqI'},
+                                 'type': 'PAY_PAGE'},
+          'merchantId': 'PGTESTPAYUAT86',
+          'merchantTransactionId': 'MT3b415736-839f-446e-b30b-659b84a95337'},
+ 'message': 'Payment initiated',
+ 'success': True}
+"""
+
+# Directly access the data from the response dictionary
+paymentURL = res.get("data", {}).get("instrumentResponse", {}).get("redirectInfo", {}).get("url", None)
+transactionID = res.get("data", {}).get("merchantTransactionId", None)
+print("transaction_id - ", transactionID)
+print("payment_url - ", paymentURL)
+print()
