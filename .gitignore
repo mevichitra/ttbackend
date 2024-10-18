@@ -19,5 +19,4 @@ test-reports/
 /.serverless/
 
 # secrets
-/constants.py
 constants.py
